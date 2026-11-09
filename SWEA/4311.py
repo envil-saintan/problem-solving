@@ -9,7 +9,8 @@ for tc in range(T):
     W = int(input())
 
     pq = []
-    dist = [ 10**18 for _ in range(1000) ]
+    INF = 10**18
+    dist = [ INF for _ in range(1000) ]
     origin = set()
     for i in range(1000):
         if set(digit) >= set(map(int, str(i))):
@@ -46,7 +47,7 @@ for tc in range(T):
                         heapq.heappush(pq, (dist[j], j))
 
     rst = dist[W] if W in origin else dist[W]+1
-    if rst >= M: rst = -1
+    if rst > M: rst = -1
     print(f"#{tc+1} {rst}")
 
     # print('dist:', *range(100), sep='\t')
